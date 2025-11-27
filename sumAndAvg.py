@@ -1,19 +1,22 @@
+# array_scores.py
+
 import sys
 
-# If valid numbers are provided via command line, use them
-scores = []
-for arg in sys.argv[1:]:
-    scores.append(float(arg))
+if len(sys.argv)>1:
+  script_name=sys.argv[0]
+  scores = [int(arg) for arg in sys.argv[1:]]
+  print("user details inputted.")
 
-if not scores:
-    print("No valid scores provided, using default.")
-    scores = [10, 20, 30, 40]
-
+else:
+    print("default details.")
+    script_name=sys.argv[0]
+    scores=[10,20,30,40]
+    
 total = sum(scores)
 average = total / len(scores)
 maximum = max(scores)
 minimum = min(scores)
-
+    
 print(f"Scores: {scores}")
 print(f"Sum of scores: {total}")
 print(f"Average of scores: {average:.2f}")
